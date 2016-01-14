@@ -1,0 +1,192 @@
+@mixin word-wrap() {
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.ui.list .list > .item .description, .ui.list > .item .description {
+  @include word-wrap();
+}
+
+.ui.grid {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.ui.container {
+  position: relative;
+}
+
+.ui.sidebar.menu {
+  z-index: 20000;
+}
+
+.pushable > .pusher.dimmed .ui.loading.segment:before {
+  z-index: 1;
+}
+
+.pushable > .pusher {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.ui.left.sidebar {
+  transform: translate3d(-260px, 0, 0);
+}
+
+.ui.left.floated {
+  float: left;
+}
+
+.ui.right.floated {
+  float: right;
+}
+
+.icon.spin {
+  -webkit-animation: spin 1000ms infinite linear;
+  animation: spin 1000ms infinite linear;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.show-loading, .show-error, .show-ok {
+  display: none;
+}
+
+.loading .show-loading {
+  display: inline-block;
+}
+
+.error .show-error {
+  display: inline-block;
+}
+
+.ok .show-ok {
+  display: inline-block;
+}
+
+.stats {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-200%);
+  background: white;
+  transition: all 1s ease-in-out;
+  border-right: 1px #444 solid;
+}
+
+.dimmer {
+  display: none;
+  background: black;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  transition: all 1s ease-in-out;
+}
+
+.site {
+  min-height: 100vh;
+  transition: all 1s ease-in-out;
+}
+
+.show-stats .stats {
+  transform: translateX(-50%);
+}
+
+.show-stats .dimmer {
+  display: block;
+  opacity: .5;
+}
+
+.show-stats .site {
+  transform: translateX(50%);
+}
+
+.ui.segment.fixed {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  z-index: 200;
+}
+
+a[ui-sref] {
+  cursor: pointer;
+}
+
+.narrow.container {
+  max-width: 80rem;
+  margin: auto;
+  padding: 3rem;
+}
+
+/* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
+// injector
+// endinjector
+
+@media only screen and (max-width: 1200px) {
+  .secondary.pointing.menu .item, .secondary.pointing.menu .menu {
+    display: none;
+  }
+  .secondary.pointing.menu .toc.item {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .secondary.pointing.menu .toc.item {
+    display: none;
+  }
+}
+
+.ui.mini.dropdown {
+  font-size: 0.71428571em;
+
+  .menu > .item {
+    font-size: 1em;
+  }
+}
