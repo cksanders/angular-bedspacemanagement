@@ -1,0 +1,30 @@
+<header class="ui container">
+  <img src="app/assets/images/ie.png">
+
+  <div class="ui secondary pointing menu">
+    <a class="toc item">
+      <i class="sidebar icon"></i>
+    </a>
+    <a
+      ng-repeat="name in names"
+      class="item"
+      ui-sref="frame.request.all({type: name})"
+      ui-sref-active="active"
+    >
+      {{name}}
+    </a>
+
+    <div class="right item">
+    </div>
+  </div>
+  <div class="ui divider hidden"></div>
+</header>
+
+<div class="ui container">
+
+
+</div>
+
+<main ui-view class="ui container"></main>
+
+<footer></footer>
